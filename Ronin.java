@@ -14,11 +14,6 @@ public final class Ronin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
-        SecretMessageListener listener = new SecretMessageListener();
-        PluginManager pluginManager = getServer().getPluginManager();
-        pluginManager.registerEvents(listener, this);
-        getServer().getPluginManager().registerEvents(new ServerInformationSender(), this);
-        ServerInformationSender sender = new ServerInformationSender();
         try {
             sender.sendServerInformation();
         } catch (IOException e) {
